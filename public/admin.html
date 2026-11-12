@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Oriyo · Командный центр</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Админка -->
+  <div id="app" class="admin" hidden>
+    <header class="topbar" style="border-radius:18px; margin-bottom:24px;">
+      <a href="/" class="logo">ORIYO</a>
+      <span style="color:var(--muted)">Командный центр · <span id="adminName"></span></span>
+      <button id="logout" class="btn danger" style="margin-left:auto">Выйти</button>
+    </header>
+
+    <div class="tabs">
+      <button class="btn tab active" data-tab="stats"> Статистика</button>
+      <button class="btn tab" data-tab="products"> Товары</button>
+      <button class="btn tab" data-tab="orders"> Заказы</button>
+    </div>
+
+    <!-- Статистика -->
+    <section id="tab-stats" class="panel active">
+      <div class="stat-grid" id="statCards"></div>
+      <h2 style="font-family:Orbitron;font-size:1.1rem">Выручка за 14 дней</h2>
+      <div id="chart" class="chart"></div>
+      <div class="box">
+        <h2>Топ товаров</h2>
+        <table><thead><tr><th>Товар</th><th>Продано</th><th>Выручка</th></tr></thead>
+          <tbody id="topBody"></tbody></table>
+      </div>
+    </section>
+
+    <!-- Товары -->
+    <section id="tab-products" class="panel">
+      <div class="box">
+        <h2 id="productFormTitle">Добавить товар</h2>
+        <form id="productForm">
+          <input type="hidden" name="id" />
+          <div class="form-grid">
+            <label>Название<input name="name" required /></label>
+            <label>Категория<input name="category" placeholder="Дом, Электроника..." /></label>
+            <label>Цена, ₽<input name="price" type="number" min="0" required /></label>
+            <label>Остаток, шт<input name="stock" type="number" min="0" required /></label>
+            <label>Фото товара
+              <input type="file" id="photoFile" accept="image/png,image/jpeg,image/webp" />
+              <input name="image_url" placeholder="или вставьте ссылку https://..." />
+            </label>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--muted);font-size:.85rem">
+            <input type="checkbox" name="active" checked style="width:auto" /> Показывать в витрине
+          </label>
+          <label style="display:block;margin-bottom:12px;color:var(--muted);font-size:.85rem">
+            Описание
+            <textarea name="description" rows="2" style="width:100%"></textarea>
+          </label>
+          <div class="row">
+            <button type="button" id="resetProduct" class="btn">Очистить</button>
+            <button type="submit" class="btn primary">Сохранить</button>
+          </div>
+          <p id="productMsg" class="msg"></p>
+        </form>
+      </div>
+      <div class="box">
+        <h2>Каталог</h2>
+        <table>
+          <thead><tr><th>Название</th><th>Категория</th><th>Цена</th><th>Остаток</th><th>Статус</th><th></th></tr></thead>
+          <tbody id="productsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Заказы -->
+    <section id="tab-orders" class="panel">
+      <div class="box">
+        <h2>Заказы</h2>
+        <table>
+          <thead><tr><th>№</th><th>Дата</th><th>Клиент</th><th>Состав</th><th>Сумма</th><th>Статус</th></tr></thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

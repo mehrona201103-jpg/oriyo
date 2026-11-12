@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Регистрация — Oriyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body data-mode="register">
+  <main class="auth-wrap">
+    <form id="authForm" class="auth-card" novalidate>
+      <p class="eyebrow">Регистрация</p>
+      <h1>Создать аккаунт</h1>
+      <label class="field">ФИО
+        <input name="name" required autocomplete="name" placeholder="Иванов Иван Иванович" />
+      </label>
+      <label class="field">Телефон
+        <input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" />
+      </label>
+      <label class="field">Email
+        <input name="email" type="email" required autocomplete="email" />
+      </label>
+      <label class="field">Пароль, не короче 8 символов
+        <input name="password" type="password" required minlength="8" autocomplete="new-password" />
+      </label>
+      <p id="msg" class="msg"></p>
+      <button id="submitBtn" class="btn primary block lg" type="submit">Создать аккаунт</button>
+      <p class="auth-switch">Уже есть аккаунт? <a href="/login">Войти</a></p>
+    </form>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/auth.js"></script>
+</body>
+</html>

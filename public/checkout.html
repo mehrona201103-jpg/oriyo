@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оформление заказа — Oriyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="page-title">Оформление заказа</h1>
+
+    <div id="emptyCart" class="empty-state" hidden>
+      <p>В корзине пока ничего нет.</p>
+      <a href="/" class="btn primary">Перейти в каталог</a>
+    </div>
+
+    <!-- Гостю оформить заказ нельзя: показываем вход и регистрацию -->
+    <div id="authGate" class="done-card" hidden>
+      <p class="eyebrow">Почти готово</p>
+      <h1>Войдите, чтобы оформить заказ</h1>
+      <p class="muted">Так мы сохраним историю заказов и сможем быстро связаться с вами по доставке. Ваша корзина не пропадёт.</p>
+      <div class="row" style="justify-content:center; margin-top:10px">
+        <a href="/login?next=/checkout" class="btn">Войти</a>
+        <a href="/register?next=/checkout" class="btn primary">Регистрация</a>
+      </div>
+    </div>
+
+    <div id="done" class="done-card" hidden></div>
+
+    <div id="checkoutWrap" class="checkout" hidden>
+      <form id="form" class="checkout-form" novalidate>
+        <section class="block-card">
+          <h2>Получатель</h2>
+          <label class="field">ФИО
+            <input name="name" required autocomplete="name" />
+          </label>
+          <div class="grid-2">
+            <label class="field">Телефон
+              <input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" />
+            </label>
+            <label class="field">Email
+              <input name="email" type="email" autocomplete="email" />
+            </label>
+          </div>
+        </section>
+
+        <section class="block-card">
+          <h2>Доставка на дом</h2>
+          <label class="field">Адрес: город, улица, дом, квартира
+            <textarea name="address" rows="2" required autocomplete="street-address" placeholder="Москва, ул. Ленина, д. 10, кв. 25"></textarea>
+          </label>
+          <p class="muted small">Курьер доставит заказ по адресу. Стоимость доставки оплачивает клиент и она уже включена в сумму ниже.</p>
+        </section>
+
+        <section class="block-card">
+          <h2>Оплата</h2>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="payment" value="cod" checked />
+              <span><strong>При получении</strong><small>Наличными или картой курьеру</small></span>
+            </label>
+            <label class="option" id="cardOption">
+              <input type="radio" name="payment" value="card" />
+              <span><strong>Картой онлайн</strong><small id="cardHint">Безопасная оплата на странице Stripe</small></span>
+            </label>
+          </div>
+        </section>
+
+        <p id="msg" class="msg"></p>
+        <button id="submitBtn" class="btn primary block lg" type="submit">Оформить заказ</button>
+      </form>
+
+      <aside class="summary" id="summary"></aside>
+    </div>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/checkout.js"></script>
+</body>
+</html>

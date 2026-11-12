@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход — Oriyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body data-mode="login">
+  <main class="auth-wrap">
+    <form id="authForm" class="auth-card" novalidate>
+      <p class="eyebrow">Вход</p>
+      <h1>С возвращением</h1>
+      <label class="field">Email
+        <input name="email" type="email" required autocomplete="email" />
+      </label>
+      <label class="field">Пароль
+        <input name="password" type="password" required autocomplete="current-password" />
+      </label>
+      <p id="msg" class="msg"></p>
+      <button id="submitBtn" class="btn primary block lg" type="submit">Войти</button>
+      <p class="auth-switch">Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
+    </form>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/auth.js"></script>
+</body>
+</html>

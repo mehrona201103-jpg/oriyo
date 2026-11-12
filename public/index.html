@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oriyo — интернет-магазин</title>
+  <meta name="description" content="Oriyo: каталог товаров с курьерской доставкой и самовывозом." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero-banner" style="--hero-img:url('https://res.cloudinary.com/xmabtbxb/image/upload/v1794474969/oriyo/hero/cosmic-hero.png')">
+      <div class="hero-content">
+        <p class="eyebrow eyebrow-glow">Новая коллекция</p>
+        <h1>ORIYO</h1>
+        <p class="lead" id="mood">Вещи, которые поднимают настроение.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn primary lg">Смотреть каталог</a>
+          <span class="hero-note">Доставка курьером на дом</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <nav id="categories" class="filters" aria-label="Категории"></nav>
+      <input id="search" type="search" placeholder="Поиск товаров" aria-label="Поиск товаров" />
+    </div>
+
+    <section id="catalog" class="grid"></section>
+    <p id="empty" class="empty-state" hidden>Ничего не найдено. Попробуйте другой запрос.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© Oriyo</div>
+  </footer>
+
+  <script src="/common.js"></script>
+  <script src="/catalog.js"></script>
+  <script>
+    // Небольшой заряд хорошего настроения при каждом заходе
+    const phrases = [
+      'Вещи, которые поднимают настроение.',
+      'Сегодня отличный день, чтобы себя порадовать.',
+      'Маленькая радость — большой эффект.',
+      'Выбирайте то, что делает день ярче.',
+    ];
+    document.getElementById('mood').textContent = phrases[Math.floor(Math.random() * phrases.length)];
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Заказ оформлен — Oriyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <div class="done-card" id="done">
+      <p class="eyebrow">Оплата</p>
+      <h1 id="title">Спасибо за заказ</h1>
+      <p class="muted" id="text">Оплата подтверждается, это занимает несколько секунд. Статус заказа смотрите в личном кабинете.</p>
+      <div class="row" style="justify-content:center; margin-top:10px">
+        <a href="/account" class="btn">Мои заказы</a>
+        <a href="/" class="btn primary">В каталог</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/common.js"></script>
+  <script>
+    (async function () {
+      const id = new URLSearchParams(location.search).get('order');
+      if (id) document.getElementById('title').textContent = `Заказ №${id} принят`;
+      window.Oriyo.cart.set([]);
+    })();
+  </script>
+</body>
+</html>

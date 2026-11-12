@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный кабинет — Oriyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="page-title">Личный кабинет</h1>
+
+    <div class="account">
+      <section class="block-card">
+        <p class="eyebrow">Профиль</p>
+        <h2 id="userName" style="font-size:18px"></h2>
+        <p class="muted" id="userEmail"></p>
+        <p class="muted" id="userPhone"></p>
+        <button id="logout" class="btn ghost" type="button" style="margin-top:8px">Выйти</button>
+      </section>
+
+      <section class="block-card">
+        <h2>Мои заказы</h2>
+        <div id="orders"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/account.js"></script>
+</body>
+</html>
